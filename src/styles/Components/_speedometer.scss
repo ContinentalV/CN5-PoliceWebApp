@@ -1,0 +1,55 @@
+
+
+.speedometer {
+  position: relative;
+  width: 200px;
+  height: 100px; // Hauteur pour demi-cercle
+
+  .gauge {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); // Couleur de fond avec transparence
+    border-radius: 200px 200px 0 0; // Bord arrondi pour demi-cercle
+    overflow: hidden;
+
+    .dial {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 200px 200px 0 0;
+      border: 5px solid $primary-color; // Couleur de la bordure du cadran
+    }
+
+    .needle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 2px; // Largeur de l'aiguille
+      height: 90px; // Longueur de l'aiguille
+      background: $color-active; // Couleur de l'aiguille
+      transform-origin: bottom;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .center-point {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: $color-active;
+      border-radius: 50%;
+    }
+  }
+
+  .value {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -20px; // Positionnez en dessous du compteur
+    color: $text-color;
+    font-size: 1.25rem; // Taille du texte pour la valeur
+  }
+}

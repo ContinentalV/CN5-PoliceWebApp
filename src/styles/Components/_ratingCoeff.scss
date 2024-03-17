@@ -1,0 +1,43 @@
+.rating-coeff {
+  display: flex;
+  align-items: center;
+  font-size: 2em; // Larger size for stars
+
+
+
+  .star {
+    color: rgba(255, 255, 255, 0.3); // Lighter color for empty stars
+    margin-right: 0.1em;
+
+
+
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); // Adding glow effect to match glassmorphic style
+  }
+
+  .star.filled, .star.half-filled {
+    color: rgba(255, 215, 0, 0.45); // Gold color for filled stars
+  }
+
+  .star.half-filled {
+    // Create a half-filled star effect
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: '★';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      color: rgba(255, 255, 255, 0.3);
+      width: 50%;
+      overflow: hidden;
+      display: block;
+    }
+  }
+
+  .value {
+    font-size: 0.75em; // Smaller size for the numerical value
+    color: rgba(255, 255, 255, 0.7); // Light color for the text, with transparency
+    margin-left: 0.5em;
+    vertical-align: top; // Align with the top of the stars if necessary
+  }
+}

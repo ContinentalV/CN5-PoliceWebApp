@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  height: 90vh;
+  @include fullWidthDFlexCenter;
+
+
+  button.btn {
+    @include btn-base;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    font-size: 1.5rem;
+    border-radius: 5px;
+    box-shadow: rgba(18, 18, 18, 0.58) 2px 4px 2px;
+    transition: all ease-in-out 0.5s;
+
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition: all ease-in-out 0.5s;
+    }
+
+    i.bi {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.52);
+      padding-right: 1em;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+}

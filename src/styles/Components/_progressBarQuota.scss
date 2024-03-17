@@ -1,0 +1,59 @@
+// Mixin pour le gradient de couleur de la barre de progression
+@mixin progress-gradient($start-color, $end-color) {
+  background: linear-gradient(to right, $start-color, $end-color);
+}
+
+// Styles de base pour la barre de progression
+.progress-bar-container {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  height: 20px; // Hauteur du conteneur de la barre de progression
+  border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.progress-bar {
+  height: 100%;
+
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, rgba(0, 89, 255, 0.56), rgba(255, 0, 89, 0.56));
+  animation: rotateEffect ease-in-out 1.9s infinite;
+  transition: all ease-in-out 0.5s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transition: width 0.3s ease-in-out; // Transition pour l'effet de remplissage
+    z-index: 1;
+  }
+
+
+}
+
+.progress-value {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $text-color;
+  font-size: 0.75rem;
+  z-index: 2; // Assure que le texte reste au-dessus de la barre de progression
+
+}
+
+@keyframes rotateEffect {
+
+  0% {
+    transition: all ease-in-out 0.5s;
+
+
+  }
+
+}

@@ -1,0 +1,84 @@
+.badge-general-page-staff {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1); // Semi-transparent background
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(5px); // Ensures it blends well with the background
+  border: 1px solid rgba(255, 255, 255, 0.2); // Slight border to make it pop out
+  color: #61dafb; // Main theme color for text
+
+  .badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+
+    .badge-title {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7); // Slightly subdued color for the title
+      margin-bottom: 0.25rem;
+    }
+
+    .badge-value {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff; // White color for the value to stand out
+    }
+
+    .badge-animation {
+      transition: transform 0.3s ease-in-out;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: currentColor;
+        mask: url(#dynamic-icon) center / contain no-repeat; // Replace with appropriate icon
+        border-radius: 50%;
+      }
+
+      // Depending on your animation needs, you can add keyframes here
+      // For example, if the value is low:
+      &.low {
+        color: #f56565; // Red color for low values
+        animation: pulse-red 1.5s infinite;
+      }
+
+      // If the value is high:
+      &.high {
+        color: #68d391; // Green color for high values
+        animation: pulse-green 1.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+

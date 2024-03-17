@@ -1,0 +1,125 @@
+// _mixins.scss
+
+
+@mixin btn-base {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background: linear-gradient(45deg, rgba(0, 89, 255, 0.56), rgba(255, 0, 89, 0.56));
+
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(45deg, rgba(0, 89, 255, 0.85), rgba(255, 0, 89, 0.85));
+
+  }
+}
+
+
+@mixin btn-primary {
+  @include btn-base;
+  background-color: $primary-color; // Utilisez la couleur principale définie dans vos variables
+  color: $text-color; // Utilisez la couleur de texte définie dans vos variables
+}
+
+
+@mixin btn-secondary {
+  @include btn-base;
+  background-color: $color-hover; // Utilisez la couleur de survol définie dans vos variables
+  color: $color-text; // Utilisez la couleur de texte définie dans vos variables
+}
+
+
+@mixin btn-danger {
+  @include btn-base;
+  background-color: $danger-color; // Utilisez la couleur de danger définie dans vos variables
+  color: $text-color; // Utilisez la couleur de texte définie dans vos variables
+}
+
+@mixin customTableStyles {
+  .MuiPaper-root {
+    min-width: 100%; // Pour que le tableau prenne la moitié de l'écran
+    max-width: 100%;
+    flex: 2;
+    background-color: rgba(32, 35, 42, 0.38); // Couleur de fond du thème
+    color: #61dafb; // Couleur principale du thème
+    border-radius: 8px; // Bords arrondis pour le paper
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); //
+
+  }
+
+  .MuiTableHead-root {
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.73), rgba(0, 0, 255, 0.69));
+    /* Dégradé répété */
+    background-size: 200% 100%;
+    animation: gradientAnimation 1s linear infinite alternate;
+
+    th {
+      background-color: rgba(68, 76, 86, 0.72); // Fond légèrement différent pour l'entête du tableau
+      border-bottom: 1px solid rgba(40, 25, 220, 0.3);
+      color: #ffffff; // Texte en blanc pour contraster
+      font-weight: 700; // Gras pour les titres des colonnes
+
+      /* Animation */
+    }
+  }
+
+  .MuiTableBody-root .MuiTableCell-root {
+    color: #adbac7; // Couleur de texte claire pour le corps du tableau
+    border-bottom: 1px solid #444c56; // Lignes séparatrices adaptées au thème sombre
+    padding: 0.4rem;
+  }
+
+  .MuiTablePagination-root {
+    color: #adbac7; // Couleur cohérente pour la pagination
+    .MuiIconButton-root {
+      color: #768390; // Boutons de pagination en couleur subtile
+    }
+  }
+
+  .action-icons {
+    color: #539bf5; // Couleur d'accent pour les icônes d'action
+  }
+
+  .MuiTableContainer-root {
+    max-height: calc(99vh - 245px); // Enlève toute limite de hauteur sur le composant TableContainer
+  }
+
+  .MuiTableBody-root .MuiTableRow-root:hover {
+    background-color: rgba(107, 114, 128, 0.2); // Léger changement de fond au survol pour plus de visibilité
+    cursor: pointer;
+  }
+}
+
+@mixin fullWidthDFlexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+@mixin showingGrades {
+  .grade {
+    //background: linear-gradient(45deg, rgba(0, 89, 255, 0.1), rgba(255, 0, 89, 0.1));
+    background: rgba(0, 0, 0, 0.59);
+    text-shadow: rgba(12, 11, 11, 0.33) 1px 1px 1px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 2px 0;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0.3rem;
+    font-family: "Roboto", sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    font-size: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+      border-top: 1px solid #f8f2f2;
+      border-bottom: 1px solid #f8f2f2;
+
+    }
+  }
+}

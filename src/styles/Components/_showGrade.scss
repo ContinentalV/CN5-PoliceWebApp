@@ -1,0 +1,30 @@
+
+.grade-container {
+  padding: 0.1rem;
+  margin: 0.05em;
+
+
+  .grade {
+    //background: linear-gradient(45deg, rgba(0, 89, 255, 0.1), rgba(255, 0, 89, 0.1));
+    background: rgba(0, 0, 0, 0.59);
+    text-shadow: rgba(12, 11, 11, 0.33) 1px 1px 1px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 2px 0;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0.3rem;
+    font-family: "Roboto", sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    font-size: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+      border-top: 1px solid #f8f2f2;
+      border-bottom: 1px solid #f8f2f2;
+
+    }
+
+
+  }
+
+}

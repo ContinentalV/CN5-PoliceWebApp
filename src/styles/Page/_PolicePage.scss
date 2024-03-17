@@ -1,0 +1,64 @@
+.police-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+
+  .police-content-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    .agent-data-container {
+      width: 100%;
+
+
+    }
+
+    .leaderboard {
+      width: 100%;
+
+      &.custom-class {
+        width: 45%;
+        @include customTableStyles;
+        max-height: calc(100vh - 100px);
+
+      }
+    }
+
+
+  }
+
+
+}
+
+
+.avatar-police {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #768390; // Bordure pour faire ressortir les avatars
+}
+
+::-webkit-scrollbar {
+  width: 12px; // Largeur de la scrollbar
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2d2d2d; // Couleur de fond du track, à adapter en fonction de votre thème
+  border-radius: 10px; // Coins arrondis pour le track
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444; // Couleur du handle, à adapter
+  border-radius: 10px; // Coins arrondis pour le handle
+
+  &:hover {
+    background: #555; // Couleur du handle au survol
+  }
+}
+
+

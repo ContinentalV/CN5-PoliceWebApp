@@ -1,0 +1,317 @@
+// Début des styles pour la barre latérale
+
+// Caractères spéciaux de séparation
+// =================================
+// =================================
+
+// Styles de base de la barre latérale
+// ====================================
+.sidebar {
+  width: $sidebar-width;
+  background-color: rgba(255, 255, 255, 0.1); // Light background for glass effect
+  backdrop-filter: blur(10px);
+  color: $color-text;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 1rem;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  transition: all ease-in-out 0.3s;
+  border-right: 1px solid rgba(255, 255, 255, 0.2); // Adds a subtle border
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  overflow-x: hidden;
+
+  hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 89, 255, 0.56), rgba(255, 255, 255, 0.75), rgba(255, 0, 89, 0.56), rgba(255, 255, 255, 0));
+  }
+
+
+  i.bi {
+    font-size: 1.3rem;
+
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    align-content: center;
+    opacity: 0.5;
+    border: 1px solid rgba(223, 246, 255, 0.42);
+    border-radius: 5px;
+    background: linear-gradient(45deg, rgba(0, 89, 255, 0.56), rgba(255, 0, 89, 0.56));
+    transition: all ease-in-out 0.3s;
+  
+  }
+
+}
+
+// Styles pour la barre latérale lorsque celle-ci est réduite
+// ==========================================================
+.sidebar.collapsed {
+  width: $collapsed-sidebar-width;
+
+  .sidebar-header {
+    padding: 10px;
+    width: 100%;
+
+    .logo {
+      max-width: $logo-size-collapsed; // Ajuster la taille du logo
+      max-height: $logo-size-collapsed; // Ajuster la taille du logo
+      margin-top: 30px;
+      transform: translateX(-2px);
+      transition: max-width $transition-duration, max-height $transition-duration, transform $transition-duration; // Transition douce
+    }
+  }
+
+  p {
+    display: none;
+  }
+
+  nav li {
+
+
+  }
+
+
+}
+
+// Styles pour l'en-tête de la barre latérale
+// ===========================================
+.sidebar .sidebar-header {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  transition: all $transition-duration;
+  position: relative;
+
+  .logo {
+    margin-top: 30px;
+    max-width: calc($logo-size-collapsed * 1.1);
+    height: auto;
+    transition: max-width 0.3s;
+    max-height: 75px;
+    border-radius: 50%;
+  }
+
+  .container-profile-sidebar-info {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 0.5em;
+    gap: 15px;
+
+    p {
+      font-weight: lighter;
+      font-size: 0.85rem;
+      text-align: center;
+      font-family: Roboto, sans-serif;
+    }
+
+  }
+
+  h2 {
+    font-family: $font-stack;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 1rem; // Space between logo and title
+    font-size: 1.2rem; // Adjust font size as needed
+    color: $color-text;
+    opacity: 0.7; // Slightly transparent text for a glass effect
+  }
+}
+
+// Styles pour la navigation de la barre latérale
+// ===============================================
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav li {
+  padding: 0.5rem 0.5rem;
+  transition: background-color ease-in-out $transition-duration, transform ease-in-out $transition-duration, box-shadow $transition-duration, border-radius $transition-duration, padding $transition-duration;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); // Subtle separators for items
+  font-size: 1.2rem; // Légère augmentation de la taille de la police
+  text-transform: capitalize;
+  font-weight: 500; // Police un peu plus grasse
+  height: 100%;
+  //background-color: rgba(255, 255, 255, 0); // Effet de hover plus subtil
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); // Ombre douce
+  backdrop-filter: blur(5px); // Renforcer l'effet flou au survol
+  cursor: pointer;
+  margin: 10px 0;
+  border-radius: 6px;
+  width: 100%;
+  background: linear-gradient(45deg, rgba(0, 89, 255, 0.20), rgba(255, 0, 89, 0.20));
+
+
+  &:hover {
+    transform: scale(1.01) translateY(-5px);
+    transition: transform ease-in-out 0.2s;
+    background: linear-gradient(45deg, rgba(0, 89, 255, 0.60), rgba(255, 0, 89, 0.60));
+
+  }
+
+  &.active {
+    background: linear-gradient(45deg, rgba(0, 89, 255, 0.60), rgba(255, 0, 89, 0.60));
+
+  }
+
+  a {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: inherit; // Use the current text color
+    text-decoration: none;
+    transition: all ease-in-out $transition-duration;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+      opacity: 0.8;
+      transition: opacity $transition-duration, transform $transition-duration;
+      margin-left: 10px;
+
+
+    }
+
+
+    &:hover {
+      opacity: 1;
+    }
+
+    i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.sidebar nav li.active {
+  border-radius: 8px;
+  margin: 10px 0;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 3px 16px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  transition: margin ease-in 0.2s, transform ease-in-out 0.2s;
+  cursor: pointer;
+
+  .icon {
+    color: $color-active; // Changement de couleur pour l'icône active
+  }
+}
+
+// Bouton de basculement
+// ======================
+.sidebar .toggle-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  width: 40px;
+  color: $color-text;
+  border: none;
+  background: transparent; // Fond du bouton
+  border-radius: 15px;
+  position: absolute;
+  top: -40px;
+  animation: SlideLeft ease-out 0.3s;
+  transition: transform ease-in-out 0.3s, background $transition-duration, box-shadow $transition-duration, border-radius $transition-duration;
+
+  &.nocolapse {
+    position: absolute;
+    top: -25px;
+    transition: transform ease-in-out 0.6s;
+    animation: SlideRight ease-in 0.6s forwards;
+  }
+
+  &:hover {
+    color: white;
+
+  }
+
+
+}
+
+// Animation de la translation vers la droite
+@keyframes SlideRight {
+  0% {
+    transform: translateX(0);
+  }
+  /* Début de l'animation : pas de déplacement */
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+// Animation de la translation vers la gauche
+@keyframes SlideLeft {
+}
+
+// Affichage du texte de navigation lorsque la barre latérale est réduite
+
+
+// Centrer l'icône dans la barre latérale réduite
+.sidebar.collapsed .icon {
+  margin: 0 auto;
+  display: block;
+}
+
+.footer-sidebar-no-collapsed {
+
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all ease-in-out 0.3ms;
+
+  .contact {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .created-footer {
+    font-size: 0.7em;
+    font-weight: lighter;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.48);
+
+  }
+
+  &:hover > i.bi {
+    transition: all ease-in-out 0.3s;
+    transform: scale(1.1);
+  }
+
+}
+

@@ -1,0 +1,57 @@
+
+.reset-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+
+  .confirm-message-reset {
+    text-align: center;
+    padding: 0.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    font-size: 1.2em;
+  }
+
+  .btn-confirm-yes, .btn-confirm-no {
+    @include btn-base;
+    margin: 0.5em;
+  }
+
+  .btn-confirm-no {
+    background: rgba(185, 2, 2, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    color: rgba(255, 255, 255, 0.90);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+    &:hover {
+      background: rgba(185, 2, 2, 0.90);
+      border: 1px solid rgba(255, 255, 255, 0.90);
+      color: rgba(255, 255, 255, 0.90);
+      transform: scale(1.1);
+      transition: all ease-in-out 0.3s;
+    }
+  }
+
+  .btn-confirm-yes {
+    background: rgb(8, 50, 84, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    color: rgba(255, 255, 255, 0.90);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+    &:hover {
+      background: rgb(3, 66, 118);
+      border: 1px solid rgba(255, 255, 255, 0.90);
+      color: rgba(255, 255, 255, 0.90);
+      transform: scale(1.1);
+      transition: all ease-in-out 0.3s;
+    }
+  }
+
+
+}

@@ -1,0 +1,26 @@
+// Importation des polices Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;1,9..40,600&display=swap');
+// Base
+@import "base/base";
+@import "base/mixins";
+@import "base/variables";
+//Page
+@import "Page/Home";
+@import "Page/LoginPage";
+//Composant
+@import "Components/sidebar";
+@import "Components/header";
+@import "Components/badgePageStaff";
+@import "Components/staffProfileInformation";
+@import "Components/ratingCoeff";
+@import "Components/progressBarQuota";
+@import "Components/badge";
+@import "Page/PolicePage";
+@import "Components/policeLeaderBoardTable";
+@import "Components/updateAgentForm";
+@import "Components/matriculeComponent";
+@import "Components/resetDataAgentComponent";
+@import "Components/agentGradeComponent";
+@import "Components/showGrade";

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+// Keyframes pour l'animation de la bordure plus subtile
+@keyframes border-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+// Styles de base pour les badges
+.badge {
+  display: flex;
+  align-items: center;
+  margin: 0.3em 0;
+
+
+  .bi {
+
+    font-size: 1.2em; // Taille uniforme pour toutes les icônes de badge
+    color: #24e817; // Couleur des icônes de badge
+    font-weight: bold;
+  }
+
+
+  .count-badge {
+    background: rgba(31, 41, 55, 0.5);
+    backdrop-filter: drop-shadow(0 5px);
+    backdrop-filter: blur(50px);
+
+
+    padding: 0.2em 0.6em;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 8px;
+    font-weight: 700;
+    position: relative; // Pour superposer sur l'animation
+
+  }
+}
+
+// Couleurs pour les valeurs des badges selon les seuils
+.badge .count-badge.low {
+  color: #ff6a6a; // Rouge pour faible
+}
+
+.badge .count-badge.medium {
+  color: #ffd700; // Jaune pour moyen
+}
+
+.badge .count-badge.high {
+  color: #90ee90; // Vert pour élevé
+}
+
+.badge .count-badge.date {
+  color: #0877d1; // Vert pour élevé
+}
+
+.badge .count-badge.support {
+  color: #039242; // Vert pour élevé
+}
+
+.badge .count-badge.modo {
+  color: #089bea; // Vert pour élevé
+}
+
+.badge .count-badge.admin {
+  color: #d87d04; // Vert pour élevé
+}
+
+.badge .count-badge.resp {
+  color: #f41902; // Vert pour élevé
+}
+
+// Styles supplémentaires pour les badges de productivité
+.badge .count-badge.productivity.low {
+  color: #ff6a6a; // Rouge pour faible productivité
+}
+
+.badge .count-badge.productivity.medium {
+  color: #ffd700; // Jaune pour productivité moyenne
+}
+
+.badge .count-badge.productivity.high {
+  color: #90ee90; // Vert pour haute productivité
+}
+
+// Styles pour le temps (si nécessaire, ajustez selon votre design)
+.badge .count-badge.time {
+  color: #4a90e2; // Bleu pour le temps
+}
+
+.badge .count-badge.Dev {
+  color: #e306a0; // Bleu pour le temps
+}

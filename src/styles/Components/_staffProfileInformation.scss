@@ -1,0 +1,449 @@
+// Ajoutez ces styles SCSS à votre fichier SCSS existant
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agent-container {
+  display: flex;
+  height: 50%;
+  flex-wrap: wrap;
+  gap: 20px; // Space between main blocks
+  max-width: 1000px; // Adjust to desired width
+  margin: auto; // Center the container
+
+}
+
+// Block for the avatar, name, grades, note, and score
+.agent-avatar-block {
+  max-width: 35%;
+  min-width: 35%;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+
+  // Separator: Left side styles
+  //////////////////////////////////////////
+  .leftside {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+
+    .nameAvatar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      padding: 1em;
+      align-items: center;
+      gap: 25px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-right-color: rgba(255, 255, 255, 0.1);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+
+
+    }
+
+    .state {
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      width: 100%;
+      height: 100%;
+
+      .detail.state-agent {
+
+        display: flex;
+        align-content: center;
+        border-radius: 5px;
+        background: rgba(8, 50, 84, 0.06);
+        align-items: center;
+        cursor: not-allowed;
+
+        &.active-agent {
+          border: 1px solid rgba(34, 171, 24, 0.82);
+          box-shadow: rgba(18, 18, 18, 0.53) 0 2px 8px 1px;
+          transition: all ease-in-out 0.3s;
+          backdrop-filter: blur(100px);
+        }
+
+        &.inactive-agent {
+          box-shadow: rgba(18, 18, 18, 0.54) 0 2px 5px 0;
+          backdrop-filter: blur(100px);
+          border: 1px solid rgba(251, 4, 21, 0.67);
+          transition: all ease-in-out 0.3s;
+        }
+
+        p {
+          display: flex;
+          align-items: center;
+          font-size: 0.5rem;
+          width: 100%;
+          height: 100%;
+          padding: 1em;
+          text-shadow: #121212 2px 2px;
+          letter-spacing: 0.2em;
+          backdrop-filter: blur(100px);
+
+          &.inactive-agent {
+            padding-right: 1em;
+          }
+        }
+
+        i.bi {
+          font-size: 1.5rem;
+          text-shadow: rgba(18, 18, 18, 0.67) 1px 1px;
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          height: 100%;
+          align-items: center;
+          backdrop-filter: blur(100px);
+          transition: all ease-in-out 0.3s;
+
+          &.inactive-agent {
+            color: rgba(255, 0, 0, 0.75);
+          }
+
+          &.active-agent {
+            color: rgba(11, 210, 3, 0.82);
+          }
+        }
+      }
+    }
+
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.74);
+    box-shadow: rgba(0, 0, 0, 0.73) 0 2px 3px 0;
+  }
+
+  .name {
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Consolas", monospace;
+    text-shadow: rgba(1, 9, 16, 0.74) 2px 2px 2px;
+
+  }
+
+  .grade {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Separator: Right side styles
+  //////////////////////////////////////////
+  .rightside {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+
+    .detail {
+      color: white;
+
+      // Space above details like productivity score
+      .label {
+        font-size: 0.85rem;
+      }
+
+      .value {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Block for hourly information
+.agent-hours-block {
+  flex: 1; // Pour occuper l'espace disponible de manière équilibrée
+
+  background-color: rgba(255, 255, 255, 0.1); // Effet de verre
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px; // Espace entre les détails
+  width: 45%; // Largeur ajustée pour correspondre au reste
+
+  // Separator: Detail styles
+  //////////////////////////////////////////
+  .detail {
+    display: flex;
+    height: 35px;
+    justify-content: space-between; // Séparer le label et la valeur
+    align-items: center;
+    background: transparent; // Fond pour améliorer la lisibilité
+    padding: 10px; // Espace intérieur pour le texte
+    border-radius: 8px; // Bords arrondis pour s'aligner sur le style global
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+
+    .label {
+      font-size: 0.9rem; // Ajustement de la taille de police pour améliorer la lisibilité
+      color: rgba(255, 255, 255, 0.75); // Couleur de police légèrement atténuée pour réduire l'éblouissement
+      font-family: "Consolas", monospace;
+    }
+
+    .value {
+      font-size: 1rem; // Taille de police plus grande pour mettre en valeur les valeurs
+      font-family: "Consolas", monospace;
+
+      &.service-quota-ok,
+      &.rpok,
+      &.score-ok {
+        // color: rgba(8, 181, 8, 0.89);
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      &.service-quota-nok,
+      &.rpnok,
+      &.score-nok {
+        //color: rgb(202, 22, 22);
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      &.info {
+        color: rgba(255, 255, 255, 0.78);
+      }
+    }
+  }
+}
+
+// Block for progress bars,
+.agent-progress-block {
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  padding: 0.3rem;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px; // Space between progress bars
+
+  // Separator: Detail styles
+  //////////////////////////////////////////
+  .detail {
+
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+    span.label {
+
+      font-family: Consolas, sans-serif;
+      background: rgba(0, 0, 0, 0.29);
+      border: 1px solid rgba(255, 255, 255, 0.56);
+      border-radius: 5px;
+      padding: 0.3rem;
+      color: rgba(255, 255, 255, 0.70);
+
+
+    }
+  }
+}
+
+// Block for diverse data,
+.agent-data-diverse-block {
+  flex: 1;
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+  font-family: Consolas, sans-serif;
+  color: rgba(255, 255, 255, 0.69);
+
+
+  .grade-salaire, .base-salarial {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0.2em 0;
+    justify-content: start;
+    gap: 50px;
+    align-items: center;
+
+    p {
+      background: rgba(0, 0, 0, 0.29);
+      padding: 0.20em;
+
+      border: 1px solid rgba(255, 255, 255, 0.27);
+      border-radius: 5px;
+
+
+    }
+
+    .grade, .salaire {
+
+      background: rgba(0, 0, 0, 0.58);
+      padding: 0.20em;
+      margin: 0.2em 0;
+      font-weight: lighter;
+      border-radius: 5px;
+
+    }
+
+
+  }
+
+
+}
+
+// Block for rewards
+.agent-output-form {
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+
+
+  .result-output {
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .matricule-container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+
+    h3.subtile {
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+}
+
+//Block for actions bar
+.agent-actions-bar {
+  width: 100%;
+  height: 20%;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  position: relative;
+
+  // Separator: Button styles
+  //////////////////////////////////////////
+  .btn-action-agent {
+    cursor: pointer;
+    --width: 45px;
+
+    &, & * {
+      box-sizing: border-box;
+      transition: 200ms;
+    }
+
+    width: var(--width);
+    height: var(--width);
+    color: #fff;
+    font-size: 30px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    margin: 20px;
+    overflow: hidden;
+    @include flex-center;
+
+    &.active-btn {
+
+      transform: translateY(-10px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.54), inset 0 20px 30px rgba(0, 0, 0, 0.54);
+      background: linear-gradient(45deg, rgba(0, 89, 255, 0.56), rgba(255, 0, 89, 0.56));
+
+
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      filter: blur(0px);
+      transition: 400ms;
+      transform: skewX(45deg) translateX(calc(var(--width) + 50%));
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+
+      &:before {
+        transform: skewX(45deg) translateX(calc(var(--width) * -1 - 50%))
+      }
+    }
+
+    & > * {
+      opacity: 0.8;
+    }
+  }
+
+  & i.bi {
+    font-size: 1.5rem;
+  }
+}

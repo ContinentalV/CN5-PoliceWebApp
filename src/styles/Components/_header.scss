@@ -1,0 +1,57 @@
+
+.header {
+  height: $header-height;
+  background-color: rgba(255, 255, 255, 0.15); // Un fond semi-transparent pour s'adapter au flou
+  backdrop-filter: blur(5px); // L'effet de flou pour se fondre avec l'arrière-plan
+  color: $color-text-header; // Assurez-vous que cette couleur est définie dans vos variables
+  width: calc(100% - #{$sidebar-width});
+  margin-left: $sidebar-width;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // Si vous avez d'autres éléments dans le header
+  padding: 0 20px; // Un peu de padding des deux côtés
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Une ombre douce pour un effet de profondeur
+  z-index: 1000;
+  transition: all ease-in-out 0.3s; // Transitions douces pour l'animation
+}
+
+.header.collapsed {
+  margin-left: $collapsed-sidebar-width; // Ajustez cette valeur selon votre sidebar réduite
+  width: calc(100% - #{$collapsed-sidebar-width});
+}
+
+
+// Add responsive styles if necessary
+@media screen and (max-width: 768px) {
+  .header,
+  .header.collapsed {
+    left: 0; // Full width on smaller screens
+  }
+}
+
+.btn-logout {
+  @include btn-base
+
+}
+
+.the-title {
+
+
+  font-family: "DM Sans", sans-serif;
+  text-transform: capitalize;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.7rem;
+  padding: 0 20px;
+  height: 100%;
+  transform: translateX(-20px);
+  color: rgb(246, 244, 241);
+  text-shadow: 0 8px 9px rgb(36, 38, 39), 0px -2px 1px rgba(2, 2, 2, 0.58);
+  font-weight: bold;
+
+
+}
