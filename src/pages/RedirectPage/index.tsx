@@ -17,7 +17,7 @@ const RedirectPage = () => {
     const exchangeCodeForToken = async (code: string) => {
         try {
             axios.defaults.withCredentials = true;
-            const response = await axios.post('https://vibrant-darwin.37-60-246-29.plesk.page:8000/auth/token', {code});
+            const response = await axios.post('www.vibrant-darwin.37-60-246-29.plesk.page:8000/auth/token', {code});
             const {accessToken, refreshToken, expiresIn, discordId, user} = response.data;
 
             // Ici, vous pouvez stocker accessToken et refreshToken comme nécessaire
