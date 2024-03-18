@@ -18,7 +18,7 @@ interface AuthContextType {
     logout: () => Promise<void>; // Ajouter la fonction de déconnexion
 }
 
-// Ici, nous fournirons une valeur par défaut conforme à AuthContextType pour éviter d'avoir à gérer un contexte potentiellement null
+
 export const AuthContext = createContext<AuthContextType>({
     user: null,
     setUser: () => {
@@ -27,7 +27,7 @@ export const AuthContext = createContext<AuthContextType>({
     verifyUser: async () => {
     },
     logout: async () => {
-    }, // Ajouter la fonction de déconnexion avec une implémentation vide
+    },
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -41,7 +41,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const verifyUser = async () => {
-        setIsLoading(true); // Optionnel, si vous souhaitez réinitialiser l'état de chargement à chaque appel
+        setIsLoading(true);
         try {
             const response = await axios.get('http://localhost:8000/auth/verify', {withCredentials: true});
             if (response.data.user) {

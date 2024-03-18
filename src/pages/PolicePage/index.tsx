@@ -38,15 +38,12 @@ const PolicePage = () => {
 
 
             ]);
-
             const allPlayers = jsonConti.Data.players
             const connectedAgentsLspd: AgentData[] = findConnectedAgents(lspdServiceResponse.filter(filterChoice.filterExcludeNotAnAgent), allPlayers);
             const dataCount = lspdServiceResponse.filter((a: AgentData) => a.inService === 1);
-
             if (connectedAgentsLspd.length > 0) {
                 setAllOnline(connectedAgentsLspd)
             }
-
             // Calcul du coût total des salaires
             let totalSalary = 0;
             let totalSalaryWithTaxe = 0
@@ -73,7 +70,6 @@ const PolicePage = () => {
             console.log(error);
         }
     };
-
     const handlePoliceSelect = (policeId: string) => {
         const police = dataLSPD.find((police: AgentData) => police.discordId === policeId);
         setSelectedPolice(police || null);

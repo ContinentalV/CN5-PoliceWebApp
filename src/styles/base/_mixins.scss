@@ -21,22 +21,22 @@
 
 @mixin btn-primary {
   @include btn-base;
-  background-color: $primary-color; // Utilisez la couleur principale définie dans vos variables
-  color: $text-color; // Utilisez la couleur de texte définie dans vos variables
+  background-color: $primary-color;
+  color: $text-color;
 }
 
 
 @mixin btn-secondary {
   @include btn-base;
-  background-color: $color-hover; // Utilisez la couleur de survol définie dans vos variables
-  color: $color-text; // Utilisez la couleur de texte définie dans vos variables
+  background-color: $color-hover;
+  color: $color-text;
 }
 
 
 @mixin btn-danger {
   @include btn-base;
-  background-color: $danger-color; // Utilisez la couleur de danger définie dans vos variables
-  color: $text-color; // Utilisez la couleur de texte définie dans vos variables
+  background-color: $danger-color;
+  color: $text-color;
 }
 
 @mixin customTableStyles {
