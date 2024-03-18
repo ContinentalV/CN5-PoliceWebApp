@@ -5,7 +5,8 @@ import {AgentData} from "./types";
 
 export const sendRequest = async (method: string, route: string, data?: any): Promise<any> => {
     let response: AxiosResponse;
-    let baseRoute = "http://localhost:8000/";
+//    let baseRoute = "http://localhost:8000/";
+    let baseRoute = "http://vibrant-darwin.37-60-246-29.plesk.page:8000/";
     const trueRoute = baseRoute + route;
     axios.defaults.withCredentials = true
     try {
