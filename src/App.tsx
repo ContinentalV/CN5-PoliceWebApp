@@ -61,6 +61,7 @@ const App = () => {
 
 
 // AuthVerification composant pour vérifier l'état d'authentification au démarrage de l'app
+/*
 const AuthVerification = () => {
     const navigate = useNavigate();
     const {user, setUser} = useAuth();
@@ -84,5 +85,5 @@ const AuthVerification = () => {
 
     return null; // Ce composant ne rend rien visuellement
 };
-
+*/
 export default App;
