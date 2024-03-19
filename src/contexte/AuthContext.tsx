@@ -43,7 +43,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     const verifyUser = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/verify', {withCredentials: true});
+            axios.defaults.withCredentials = true;
+            const response = await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/verify');
             if (response.data.user) {
                 setUser(response.data.user);
             } else {
