@@ -17,9 +17,9 @@ const RedirectPage = () => {
 
     const exchangeCodeForToken = async (code: string) => {
         try {
-            console.log("On est dans la page de redirection")
             axios.defaults.withCredentials = true;
-            const response = await axiosInstance.post('/auth/token', {code});
+            const response = await axios.post('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/token', {code});
+            console.log(response)
             const {accessToken, refreshToken, expiresIn, discordId, user} = response.data;
 
             // Ici, vous pouvez stocker accessToken et refreshToken comme nécessaire
@@ -29,7 +29,7 @@ const RedirectPage = () => {
             setUser(user); // Supposant que 'user' est l'objet utilisateur retourné par votre API
 
             // Redirection vers la page d'accueil une fois l'authentification terminée
-           // navigate('/home');
+            navigate('/home');
         } catch (error) {
             console.error(error);
             // Gérer l'erreur, peut-être rediriger vers une page d'erreur ou afficher un message
