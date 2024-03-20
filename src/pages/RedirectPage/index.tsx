@@ -17,6 +17,7 @@ const RedirectPage = () => {
 
     const exchangeCodeForToken = async (code: string) => {
         try {
+            console.log("On est dans la page de redirection")
             axios.defaults.withCredentials = true;
             const response = await axiosInstance.post('/auth/token', {code});
             const {accessToken, refreshToken, expiresIn, discordId, user} = response.data;
@@ -28,11 +29,11 @@ const RedirectPage = () => {
             setUser(user); // Supposant que 'user' est l'objet utilisateur retourné par votre API
 
             // Redirection vers la page d'accueil une fois l'authentification terminée
-            navigate('/home');
+           // navigate('/home');
         } catch (error) {
             console.error(error);
             // Gérer l'erreur, peut-être rediriger vers une page d'erreur ou afficher un message
-            navigate('/login', {replace: true});
+           // navigate('/login', {replace: true});
         }
     };
 
