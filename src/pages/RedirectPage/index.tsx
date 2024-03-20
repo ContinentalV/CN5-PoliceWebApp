@@ -1,7 +1,8 @@
 import React, {useContext, useEffect} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-import {AuthContext} from '../../contexte/AuthContext'; // Assurez-vous que le chemin d'accès est correct
+import {AuthContext} from '../../contexte/AuthContext';
+import axiosInstance from "../../utils/axiosConfig"; // Assurez-vous que le chemin d'accès est correct
 
 const RedirectPage = () => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const RedirectPage = () => {
     const exchangeCodeForToken = async (code: string) => {
         try {
             axios.defaults.withCredentials = true;
-            const response = await axios.post('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/token', {code});
+            const response = await axiosInstance.post('/auth/token', {code});
             const {accessToken, refreshToken, expiresIn, discordId, user} = response.data;
 
             // Ici, vous pouvez stocker accessToken et refreshToken comme nécessaire
