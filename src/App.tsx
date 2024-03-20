@@ -61,7 +61,7 @@ const App = () => {
 
 
 // AuthVerification composant pour vérifier l'état d'authentification au démarrage de l'app
-/*
+
 const AuthVerification = () => {
     const navigate = useNavigate();
     const {user, setUser} = useAuth();
@@ -69,14 +69,14 @@ const AuthVerification = () => {
     useEffect(() => {
         const verifyAuthentication = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/auth/verify', {withCredentials: true});
+                const response = await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/verify', {withCredentials: true});
                 if (response.status === 200 && response.data.user) {
                     setUser(response.data.user);
                 } else {
-                    navigate('/login');
+                 //   navigate('/login');
                 }
             } catch (error) {
-                navigate('/login');
+               // navigate('/login');
             }
         };
 
@@ -85,5 +85,5 @@ const AuthVerification = () => {
 
     return null; // Ce composant ne rend rien visuellement
 };
-*/
+
 export default App;
