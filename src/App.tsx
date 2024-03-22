@@ -24,7 +24,7 @@ const App = () => {
     }, [user]);
 
     return (
- 
+
         <Router>
 
             <div className={`app ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
@@ -69,14 +69,14 @@ const AuthVerification = () => {
     useEffect(() => {
         const verifyAuthentication = async () => {
             try {
-                const response = await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/verify', {withCredentials: true});
+                const response = await axios.get('https://continentalv.fr/auth/verify', {withCredentials: true});
                 if (response.status === 200 && response.data.user) {
                     setUser(response.data.user);
                 } else {
-                 //   navigate('/login');
+                    //   navigate('/login');
                 }
             } catch (error) {
-               // navigate('/login');
+                // navigate('/login');
             }
         };
 

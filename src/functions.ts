@@ -1,4 +1,4 @@
-// functions.ts
+// functions.
 
 import axios, {AxiosResponse} from 'axios';
 import {AgentData} from "./types";
@@ -6,7 +6,7 @@ import {AgentData} from "./types";
 export const sendRequest = async (method: string, route: string, data?: any): Promise<any> => {
     let response: AxiosResponse;
 //    let baseRoute = "http://localhost:8000/";
-    let baseRoute = "https://www.vibrant-darwin.37-60-246-29.plesk.page/";
+    let baseRoute = "https://continentalv.fr/";
     const trueRoute = baseRoute + route;
     axios.defaults.withCredentials = true
     try {

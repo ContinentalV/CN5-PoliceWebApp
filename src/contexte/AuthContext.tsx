@@ -45,7 +45,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         console.log("on est dans la partie qui verifie")
         try {
             axios.defaults.withCredentials = true;
-            const response = await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/verify');
+            const response = await axios.get('https://continentalv.fr/auth/verify');
             console.log(response)
             if (response.data.user) {
                 setUser(response.data.user);
@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
     const logout = async () => {
         try {
-            await axios.get('https://www.vibrant-darwin.37-60-246-29.plesk.page/auth/logout', {withCredentials: true});
+            await axios.get('https://continentalv.fr/auth/logout', {withCredentials: true});
             setUser(null);
         } catch (error) {
             console.log("Erreur lors de la déconnexion", error);
