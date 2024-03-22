@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {sendRequest} from "../../functions";
 
 interface HeaderProps {
     isSidebarCollapsed: boolean;
@@ -13,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({isSidebarCollapsed, onLogout}) => {
     const handleLogout = async () => {
         try {
 
-            await axios.get('http://localhost:8000/auth/logout', {withCredentials: true});
+            await sendRequest("get", "auth/logout")
             // Appeler la fonction de déconnexion fournie en tant que prop
             if (onLogout) {
                 onLogout();

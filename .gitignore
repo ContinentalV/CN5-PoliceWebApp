@@ -8,7 +8,7 @@ environment.json
 
 # testing
 /coverage
-
+./src/environment.json
 # production
 /build
 
