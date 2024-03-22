@@ -2,12 +2,24 @@
 
 import axios, {AxiosResponse} from 'axios';
 import {AgentData} from "./types";
+import environment from "./environment.json"
+
+
+
+
+const envConf = environment.CUSTOM_ENV
+
+
 
 export const sendRequest = async (method: string, route: string, data?: any): Promise<any> => {
+    console.log(envConf)
     let response: AxiosResponse;
-//    let baseRoute = "http://localhost:8000/";
-    let baseRoute = "https://continentalv.fr/";
+    let baseRoute = envConf === "production" ? "https://continentalv.fr/" :  "http://localhost:8000/";
+
+
+
     const trueRoute = baseRoute + route;
+    console.log(trueRoute)
     axios.defaults.withCredentials = true
     try {
         let headers: any = {}; // Initialisez un objet pour contenir les en-têtes de la requête

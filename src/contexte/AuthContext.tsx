@@ -1,5 +1,6 @@
 import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import axios from "axios";
+import {sendRequest} from "../functions";
 
 // Assurez-vous que votre interface User est bien définie
 interface User {
@@ -45,10 +46,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         console.log("on est dans la partie qui verifie")
         try {
             axios.defaults.withCredentials = true;
-            const response = await axios.get('https://continentalv.fr/auth/verify');
+            const response = await sendRequest("get", "auth/verify")
             console.log(response)
-            if (response.data.user) {
-                setUser(response.data.user);
+            if (response.user) {
+                setUser(response.user);
             } else {
                 setUser(null);
             }
@@ -62,7 +63,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
     const logout = async () => {
         try {
-            await axios.get('https://continentalv.fr/auth/logout', {withCredentials: true});
+            await sendRequest("get", "auth/logout")
             setUser(null);
         } catch (error) {
             console.log("Erreur lors de la déconnexion", error);
